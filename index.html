@@ -508,14 +508,11 @@ form.addEventListener('submit', function(e){
     'Contact: ' + encodeURIComponent(contact) + '%0A' +
     'Interested in: ' + encodeURIComponent(course) + '%0A' +
     'Message: ' + encodeURIComponent(message);
-    const whatsappNumber = '923100999892';
 
+  const whatsappNumber = '923100999892';
   const whatsappURL = 'https://wa.me/' + whatsappNumber + '?text=' + text;
 
   window.open(whatsappURL, '_blank');
-});
-
-  window.location.href = 'https://wa.me/923100999892?text=' + text;
 });
 </script>
 
