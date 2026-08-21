@@ -491,23 +491,26 @@
   }, {threshold:0.15});
   revealEls.forEach(el=>io.observe(el));
 
-  // contact form -> mailto fallback (no backend yet)
-  const form = document.getElementById('inquiryForm');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const contact = document.getElementById('contact_method').value;
-    const course = document.getElementById('course').value;
-    const message = document.getElementById('message').value;
-    const subject = encodeURIComponent('Quran Class Inquiry from ' + name);
-    const body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Contact: ' + contact + '\n' +
-      'Interested in: ' + course + '\n' +
-      'Message: ' + message
-    );
-    window.location.href = 'mailto:abosajdan902@gmail.com?subject=' + subject + '&body=' + body;
-  });
+  // contact form -> WhatsApp
+const form = document.getElementById('inquiryForm');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const contact = document.getElementById('contact_method').value;
+  const course = document.getElementById('course').value;
+  const message = document.getElementById('message').value;
+
+  const text =
+    'Assalamualaikum, I am contacting Hayat Online Quran Academy.%0A%0A' +
+    'Name: ' + encodeURIComponent(name) + '%0A' +
+    'Contact: ' + encodeURIComponent(contact) + '%0A' +
+    'Interested in: ' + encodeURIComponent(course) + '%0A' +
+    'Message: ' + encodeURIComponent(message);
+
+  window.location.href = 'https://wa.me/923100999892?text=' + text;
+});
 </script>
 
 </body>
